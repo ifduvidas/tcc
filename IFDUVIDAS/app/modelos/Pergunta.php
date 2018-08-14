@@ -7,12 +7,11 @@ class Pergunta
 	private $titulo;
 	private $materia;
     private $curso;
-    private $status;
-	private $id_pergunta;
+    private $curtidas;
 	private $id_usuario;
 
 
-    public function __construct($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $id_usuario = null)
+    public function __construct($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $curtidas = null, $id_usuario = null)
     {
 
         $this->hora = $hora;
@@ -21,6 +20,7 @@ class Pergunta
         $this->titulo = $titulo;
         $this->materia = $materia;
         $this->curso = $curso;
+        $this->curtidas = $curtidas;
         $this->id_usuario = $id_usuario;
     }
 
@@ -115,6 +115,19 @@ class Pergunta
     public function setCurso($curso)
     {
         $this->curso = $curso;
+    }
+
+    public function getCurtidas()
+    {
+        return $this->curtidas;
+    }
+
+    /**
+     * @param mixed $data_nasc
+     */
+    public function setCurtidas($curtidas)
+    {
+        $this->curtidas = $curtidas;
     }
 
     public function getStatus()

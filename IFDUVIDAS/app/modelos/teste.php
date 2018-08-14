@@ -12,6 +12,7 @@
 	 $descricao_pergunta = 'ble';
 	 $titulo = 'teste';
 	 $curso = 'informatica';
+	 
 	 $materia = 'matematica';
 	 $id_pergunta = "4";
 	 $id_usuario = "47";
@@ -35,8 +36,8 @@
 
 
 	//$novoUsuario = new Usuario($Nome, $senha, $email, $num_matricula, $data_nasc, $turma, $foto_perf, $cod_tip);
-	//$teste2 = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $id_pergunta);
-	$teste3 = new Resposta($data_resposta, $texto_resposta, $id_resposta);
+	$teste2 = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso);
+	//$teste3 = new Resposta($data_resposta, $texto_resposta, $id_resposta);
 	//$teste4 = new Comentario($data_comentario, $texto_comentario, $id_comentario);
 
 
@@ -45,11 +46,14 @@
 	//$crud = new CrudUsuarios();
 	//$crud -> insertUsuario($novoUsuario);
 
-	//$crud = new CrudPerguntas();
-	//$crud -> getCurtidas('47');
+	$crud = new CrudPerguntas();
+	$crud -> insertPergunta($teste2);
 
-	$crud = new CrudRespostas();
-	$crud -> getRespostas('47');
+	print_r($teste2);
+
+
+	//$crud = new CrudRespostas();
+	//$crud -> getRespostas('47');
 
 	//$crud = new CrudComentarios();
 	//$crud -> insertComentario($teste4);

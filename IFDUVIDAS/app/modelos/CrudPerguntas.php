@@ -32,12 +32,13 @@ class CrudPerguntas
         $descricao_pergunta = $pergunta->getDescricaoPergunta();
         $titulo = $pergunta->getTitulo();
         $materia = $pergunta->getmateria();
-        $curso = $pergunta->getcurso();
+        $curso = $pergunta->getCurso();
+        $curtidas = $pergunta->getCurtidas();
         $id_usuario = $pergunta->getIdUsuario();
 
 
-        $consulta = "INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, id_usuario)  
-                      VALUES ('{$hora}', '{$data}', '{$descricao_pergunta}', '{$titulo}', '{$materia}', '{$curso}', '{$id_usuario}')";
+        $consulta = "INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, curtidas,id_usuario)  
+                      VALUES ('{$hora}', '{$data}', '{$descricao_pergunta}', '{$titulo}', '{$materia}', '{$curso}','{$curtidas}', '{$id_usuario}')";
         //echo $consulta;
         try {
             $res = $this->conexao->exec($consulta);
@@ -196,5 +197,5 @@ class CrudPerguntas
     }
 
 }
-
+//INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, curtidas,id_usuario) VALUES (null, null ,'aaaa','meu deus','portugues',null ,null ,'41')
 ?>
