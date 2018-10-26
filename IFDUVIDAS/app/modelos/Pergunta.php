@@ -11,7 +11,7 @@ class Pergunta
 	private $id_usuario;
 
 
-    public function __construct($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $curtidas = null, $id_usuario = null)
+    public function __construct($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $curtidas = null)
     {
 
         $this->hora = $hora;
@@ -21,7 +21,6 @@ class Pergunta
         $this->materia = $materia;
         $this->curso = $curso;
         $this->curtidas = $curtidas;
-        $this->id_usuario = $id_usuario;
     }
 
         public function getHora()

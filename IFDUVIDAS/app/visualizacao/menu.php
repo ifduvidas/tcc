@@ -57,10 +57,11 @@
       if (isset($_SESSION['id_usuario'])) {
      ?>   
       <a class="item" href="../controlador/Usuarios.php?acao=paginaDoUsuario&id_usuario=<?=$_SESSION['id_usuario']?>">
-          <i class="setting icon"></i>
+          <i class="user icon"></i>
           Perfil
        </a>
        <a class="item" href="../controlador/Usuarios.php?acao=logout">
+          <i class="power off icon"></i>
           Logout
        </a>
 

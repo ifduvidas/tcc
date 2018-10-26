@@ -18,7 +18,7 @@
         </div>
         <div class="field">
           <label>Senha</label>
-          <input type="text" name="senha" placeholder="senha" id="senha">
+          <input type="password" name="senha" placeholder="senha" id="senha">
         </div>
    <button class="ui button" type="submit" value="entrar" name="entrar" id="entrar">Entrar</button>
       </form>

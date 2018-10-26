@@ -3,10 +3,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-img{
-	height: 50%;
-	width: 100%;
-}
 
 
 #menu{
@@ -87,6 +83,7 @@ img{
 	margin: 75px;
 	background-color: gray;
 	box-shadow: -6px -6px 28px -7px black;
+	display:table;
 
 }
 
@@ -98,6 +95,7 @@ img{
 
 #sobre_usuario{
 	text-align: center;
+	height: 35%;
 }
 
 #tras{
@@ -112,3 +110,14 @@ img{
 
 #conteudo{
 	margin-left: 425px;
+}
+
+#botoes{
+	width: 350px;
+	height: 15%;
+}
+
+#botao{
+	width: 100%;
+	margin: 0px;
+}

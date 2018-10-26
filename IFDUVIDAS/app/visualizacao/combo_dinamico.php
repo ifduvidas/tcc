@@ -1,29 +1,28 @@
-<!DOCTYPE html>
 <html>
 <head>
-
+     <?php include'head.php' ?>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">	
 		
 		$(document).ready(function () {
 		
-			$.getJSON('../visualizacao/cadastro.json', function (data) {
+			$.getJSON('estados_cidades.json', function (data) {
 
 				var items = [];
-				var options = '<option value="">Aluno ou Professor?</option>';	
+				var options = '<option value="">escolha um estado</option>';	
 
 				$.each(data, function (key, val) {
 					options += '<option value="' + val.nome + '">' + val.nome + '</option>';
 				});					
-				$("#tipo").html(options);				
+				$("#tipos").html(options);				
 				
-				$("#tipo").change(function () {				
+				$("#tipos").change(function () {				
 				
 					var options_cidades = '';
 					var str = "";					
 					
-					$("#tipo option:selected").each(function () {
+					$("#tipos option:selected").each(function () {
 						str += $(this).text();
 					});
 					
@@ -44,12 +43,11 @@
 		});
 		
 	</script>		
-
-
 </head>
 
 <body>
-<?php include'menu.php' ?>
+    
+    <?php include'menu.php' ?>
 
 <div class="ui grid" >
   <div class="four wide column"></div>
@@ -72,15 +70,14 @@
     <label>Data de nascimento</label>
     <input type="date" name="data_nasc">
   </div>  
-
   <div class="field">
     <label>Você é...</label>
-    <select class="ui dropdown" id="tipo" name="cod_tip">
+    <select class="ui dropdown" id="tipos" name="cod_tip">
 			<option value=""></option>
 		</select>
 		<div class="field"></div>
 		 <label>de</label>
-		<select name="atributo" id="atributos">
+		<select name="atributos" id="atributos">
 		</select>
   </div>
      <div class="field">
@@ -95,11 +92,9 @@
   </div>
   <div class="four wide column"></div>
   </div>
-
->
-
-
-
+    
+    
 </body>
+
 
 </html>

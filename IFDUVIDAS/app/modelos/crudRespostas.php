@@ -78,6 +78,15 @@ class crudRespostas
         }
     }
 
+     public function getNumPerguntaRespondidasPorProf($id_usuario)
+    {
+        $sql = "SELECT COUNT(p.id_pergunta) from perguntas as p, prof_resposta as r where p.id_pergunta=r.id_pergunta and r.id_usuario = $id_usuario";
+        $resultado = $this->conexao->query($sql);
+
+        $respostas = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        return $respostas;
+    }
+
 
 
 	}

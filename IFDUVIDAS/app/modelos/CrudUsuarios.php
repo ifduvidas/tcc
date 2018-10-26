@@ -25,8 +25,8 @@ class CrudUsuarios
 
         $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
         foreach ($usuarios as $usuario) {
-            $objeto = new Usuario($usuario['Nome'], $usuario['senha'], $usuario['email'], $usuario['num_matricula'], $usuario['data_nasc'], $usuario['turma'], $usuario['RG'],
-                $usuario['foto_perf'], $usuario['login'], $usuario['id_usuario'], $usuario['valido'], $usuario['cod_tip']);
+            $objeto = new Usuario($usuario['Nome'], $usuario['senha'], $usuario['email'], $usuario['num_matricula'], $usuario['data_nasc'], $usuario['atributo'],
+                $usuario['foto_perf'], $usuario['id_usuario'], $usuario['cod_tip']);
 
             $listaUsuarios[] = $objeto;
         }
@@ -39,12 +39,12 @@ class CrudUsuarios
         $senha = $usuario->getSenha();
         $email = $usuario->getEmail();
         $dataNasc = $usuario->getDataNasc();
-        $turma = $usuario->getTurma();
+        $atributo = $usuario->getAtributo();
         $cod_tip = $usuario->getCodTip();
 
 
-        $consulta = "INSERT INTO usuarios (Nome, senha, email, data_nasc, turma, foto_perf, cod_tip )  
-                      VALUES ('{$Nome}', '{$senha}', '{$email}', '{$dataNasc}', '{$turma}','$arquivo_nome', '{$cod_tip}')";
+        $consulta = "INSERT INTO usuarios (Nome, senha, email, data_nasc, atributo, cod_tip, foto_perf)  
+                      VALUES ('{$Nome}', '{$senha}', '{$email}', '{$dataNasc}', '{$atributo}', '{$cod_tip}', '$arquivo_nome')";
         //echo $consulta;
         try {
             $res = $this->conexao->exec($consulta);
@@ -77,12 +77,11 @@ class CrudUsuarios
         return $usuario;
     }
 
-    public function updateUsuario(Usuario $usuario)
+    public function updateUsuario($usuario, $arquivo_nome, $id_usuario)
     {
 
-        $consulta = "UPDATE Usuarios SET Nome = '{$usuario->getNome()}', senha = '{$usuario->getSenha()}', email = '{$usuario->getEmail()}', num_matricula = '{$usuario->getNumMatricula()}' , data_nasc = '{$usuario->getDataNasc()}', turma = '{$usuario->getTurma()}', RG = '{$usuario->getRG()}', foto_perf = '{$usuario->getFotoPerf()}', 
-                                        login = '{$usuario->getLogin()}', id_usuario = '{$usuario->getIdUsuario()}', valido = '{$usuario->getValido()}', cod_tip = '{$usuario->getCodTip()}'
- WHERE id={$usuario->getId()}";
+        $consulta = "UPDATE usuarios SET Nome = '{$usuario->getNome()}', senha = '{$usuario->getSenha()}', email = '{$usuario->getEmail()}', data_nasc = '{$usuario->getDataNasc()}', atributo = '{$usuario->getAtributo()}', foto_perf = '{$arquivo_nome}', cod_tip = '{$usuario->getCodTip()}'
+                    WHERE id_usuario=$id_usuario";
 
         echo $consulta;
         try {
@@ -96,7 +95,7 @@ class CrudUsuarios
     public function deleteUsuario($id)
     {
 
-        $consulta = "DELETE FROM Usuarios WHERE id_usuario = {$id}";
+        $consulta = "DELETE FROM usuarios WHERE id_usuario = {$id}";
         echo $consulta;
         try {
             $res = $this->conexao->exec($consulta);

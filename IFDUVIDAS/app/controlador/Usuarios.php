@@ -25,11 +25,11 @@ switch ($acao) {
 
         include '../visualizacao/head.php';
         include '../visualizacao/index.php';
-        include '../visualizacao/footer.php';
+        include '../visualizacao/footer_smallpage.php';
         break;
 
 
-    case 'cadastrar';
+    case 'cadastrar':
         if (!isset($_POST['gravar'])) { // se ainda nao tiver preenchido o form
             include '../visualizacao/head.php';
             include '../visualizacao/cadastro.php';
@@ -43,8 +43,20 @@ switch ($acao) {
                 $senha = $_POST['senha'];
                 $email = $_POST['email'];
                 $data_nasc = $_POST['data_nasc'];
-                $turma = $_POST['turma'];
-                $cod_tip = $_POST['cod_tip'];
+                $atributo =  $_POST['atributo'];
+                $tipo = $_POST['cod_tip'];
+                
+                switch ($tipo) {
+                    case 'Aluno':
+                        $cod_tip = '5';
+
+
+                        break;
+
+                    case'Professor':
+                        $cod_tip = '4';
+                        break;
+                }
 
                 $arquivo = $_FILES["foto_perf"];
                 $pasta_dir = "fotos/";
@@ -52,7 +64,7 @@ switch ($acao) {
                 $arquivo_nome = $pasta_dir . $arquivo["name"];
                 move_uploaded_file($_FILES["foto_perf"]["tmp_name"], $arquivo_nome);
 
-                $novoUsuario = new Usuario($Nome, $senha, $email, $data_nasc, $turma, $cod_tip);
+                $novoUsuario = new Usuario($Nome, $senha, $email, $data_nasc, $atributo, $cod_tip);
 
                 $crud = new CrudUsuarios();
                 $crud->insertUsuario($novoUsuario, $arquivo_nome);
@@ -61,7 +73,7 @@ switch ($acao) {
             };
 
 
-            header('location: Usuarios.php');
+            header("location: Usuarios.php");
         }
         break;
 
@@ -119,11 +131,69 @@ switch ($acao) {
 
         $crud2 = new CrudRespostas();
         $respostas = $crud2->getPerguntaRespondidasPorProf($id_usuario);
+        $numRespostas = $crud2->getNumPerguntaRespondidasPorProf($id_usuario);
 
         include '../visualizacao/head.php';
         include '../visualizacao/paginaUsuario.php';
 
         break;
+
+
+    case 'deletarUsuario':
+        $id_usuario = $_SESSION['id_usuario'];
+        $crud1 = new CrudUsuarios();
+        $delete = $crud1->DeleteUsuario($id_usuario);
+
+        session_destroy();
+        header('location: Usuarios.php');
+    break;   
+
+        case 'alterarUsuario':
+        if (!isset($_POST['gravar'])) { 
+            $id_usuario = $_SESSION['id_usuario'];
+            $crud1 = new CrudUsuarios();
+            $usuario = $crud1->getUsuario($id_usuario); 
+
+            include '../visualizacao/head.php';
+            include '../visualizacao/alterarUsuario.php';
+            include '../visualizacao/footer.php';
+        } else {
+            $id_usuario = $_SESSION['id_usuario'];
+            $Nome = $_POST['nome'];
+            $senha = $_POST['senha'];
+            $email = $_POST['email'];
+            $data_nasc = $_POST['data_nasc'];
+            $atributo =  $_POST['atributo'];
+            $tipo = $_POST['cod_tip'];
+                
+                switch ($tipo) {
+                    case 'Aluno':
+                        $cod_tip = '5';
+
+
+                        break;
+
+                    case'Professor':
+                        $cod_tip = '4';
+                        break;
+                }
+
+            $arquivo = $_FILES["foto_perf"];
+            $pasta_dir = "fotos/";
+
+            $arquivo_nome = $pasta_dir . $arquivo["name"];
+            move_uploaded_file($_FILES["foto_perf"]["tmp_name"], $arquivo_nome);
+            
+            $crud = new CrudUsuarios();
+            $novoUsuario = new Usuario($Nome, $senha, $email, $data_nasc, $atributo, $cod_tip);
+
+            $crud = new CrudUsuarios();
+            $crud->updateUsuario($novoUsuario, $arquivo_nome,$id_usuario);
+             header("location:Usuarios.php");
+        }
+
+           
+    break;  
 
 
     case 'cadastrarPergunta':
@@ -141,10 +211,10 @@ switch ($acao) {
             $curso = $_POST['curso'];
             $id_usuario = $_SESSION['id_usuario'];
 
-            $novaPergunta = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso, $id_usuario);
+            $novaPergunta = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso);
 
             $crud = new CrudPerguntas();
-            $crud->insertPergunta($novaPergunta);
+            $crud->insertPergunta($novaPergunta,$id_usuario);
 
 
             header('location:Usuarios.php');
@@ -152,7 +222,13 @@ switch ($acao) {
         };
         break;
 
+    case 'deletarPergunta':
+        $id_pergunta = $_GET["id_pergunta"];
+        $crud1 = new CrudPerguntas();
+        $delete = $crud1->deletePergunta($id_pergunta);
+        header('location: Usuarios.php');
 
+        break;
     case 'busca':
         $busca = $_POST['pesquisa'];
 
@@ -220,6 +296,20 @@ switch ($acao) {
         include '../visualizacao/pergunta.php';
         include '../visualizacao/footer.php';
 
+        break;
+
+        case 'deletarComentario':
+        $id_comentario= $_GET["id_comentario"];
+        $crud1 = new CrudComentarios();
+        $delete = $crud1->deleteComentario($id_comentario);
+        header('location: Usuarios.php');
+        break;
+
+        case 'deletarResposta':
+        $id_resposta= $_GET["id_resposta"];
+        $crud1 = new crudRespostas();
+        $delete = $crud1->deleteResposta($id_resposta);
+        header('location: Usuarios.php');
         break;
 
 

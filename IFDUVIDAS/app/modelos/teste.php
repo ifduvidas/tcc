@@ -28,15 +28,14 @@
 	 $Nome = "teste3";
 	 $senha = "123";
 	 $email = "teste@gmail.com";
-	 $num_matricula = "11111";
-	 $data_nasc = null;
-	 $turma = "3info2";
-	 $foto_perf = null;
+	 $data_nasc = "10";
+	 $atributo = "3info2";
+	 $foto_perf = "aaa.com";
 	 $cod_tip = "4";
 
 
-	//$novoUsuario = new Usuario($Nome, $senha, $email, $num_matricula, $data_nasc, $turma, $foto_perf, $cod_tip);
-	$teste2 = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso);
+	//$novoUsuario = new Usuario($Nome, $senha, $email, $data_nasc, $atributo, $cod_tip);
+	//$teste2 = new Pergunta($hora, $data, $descricao_pergunta, $titulo, $materia, $curso);
 	//$teste3 = new Resposta($data_resposta, $texto_resposta, $id_resposta);
 	//$teste4 = new Comentario($data_comentario, $texto_comentario, $id_comentario);
 
@@ -44,21 +43,23 @@
 
 
 	//$crud = new CrudUsuarios();
-	//$crud -> insertUsuario($novoUsuario);
+	//$crud -> updateUsuario($novoUsuario, $foto_perf, 57);
+	//print_r($novoUsuario);
 
-	$crud = new CrudPerguntas();
-	$crud -> insertPergunta($teste2);
-
-	print_r($teste2);
+	//$crud = new CrudPerguntas();
+	//$crud -> insertPergunta($teste2);
 
 
 	//$crud = new CrudRespostas();
-	//$crud -> getRespostas('47');
+	//$crud -> getPerguntaRespondidasPorProf('51');
 
 	//$crud = new CrudComentarios();
 	//$crud -> insertComentario($teste4);
 
 	//echo "MEU";
+ 	
+
+
  ?>
 
  

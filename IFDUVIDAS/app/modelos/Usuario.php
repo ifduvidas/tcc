@@ -11,24 +11,22 @@ class Usuario
     private $Nome;
     private $senha;
     private $email;
-    private $num_matricula;
     private $data_nasc;
-    private $turma;
+    private $atributo;
     private $foto_perf;
     private $id_usuario;
-    private $valido;
     private $cod_tip;
 
 
 
-    public function __construct($Nome, $senha, $email, $data_nasc, $turma,  $cod_tip  )
+    public function __construct($Nome, $senha, $email, $data_nasc, $atributo, $cod_tip )
     {
 
         $this->Nome = $Nome;
         $this->senha = $senha;
         $this->email = $email;
         $this->data_nasc = $data_nasc;
-        $this->turma = $turma;
+        $this->atributo = $atributo;
         $this->cod_tip = $cod_tip;
 
     }
@@ -116,22 +114,17 @@ class Usuario
     /**
      * @return mixed
      */
-    public function getTurma()
-    {
-        return $this->turma;
-    }
+    
 
-    /**
-     * @param mixed $turma
-     */
-    public function setTurma($turma)
+    public function getAtributo()
     {
-        $this->turma = $turma;
+        return $this->atributo;
     }
-
-    /**
-     * @return mixed
-     */
+    
+    public function setAtributo($atributo)
+    {
+        return $this->atributo = $atributo;
+    }
     public function getRG()
     {
         return $this->RG;

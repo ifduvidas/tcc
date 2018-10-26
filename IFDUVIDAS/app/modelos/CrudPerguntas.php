@@ -25,7 +25,7 @@ class CrudPerguntas
         return $perguntas;
     }
 
-    public function insertPergunta(pergunta $pergunta)
+    public function insertPergunta($pergunta,$id_usuario)
     {
         $hora = $pergunta->getHora();
         $data = $pergunta->getData();
@@ -34,7 +34,6 @@ class CrudPerguntas
         $materia = $pergunta->getmateria();
         $curso = $pergunta->getCurso();
         $curtidas = $pergunta->getCurtidas();
-        $id_usuario = $pergunta->getIdUsuario();
 
 
         $consulta = "INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, curtidas,id_usuario)  
@@ -77,7 +76,7 @@ class CrudPerguntas
     public function deletePergunta($id_pergunta)
     {
 
-        $consulta = "DELETE FROM perguntas WHERE id_pergunta = {$id_pergunta}";
+        $consulta = "DELETE FROM perguntas WHERE id_pergunta = $id_pergunta";
         try {
             $res = $this->conexao->exec($consulta);
             //return $res;
@@ -120,7 +119,7 @@ class CrudPerguntas
 
     public function perguntasMaisCurtidas()
     {
-        $sql = "SELECT p.id_pergunta,p.descricao_pergunta, p.titulo from perguntas as p, curtida as c where p.id_pergunta = c.id_pergunta GROUP by c.id_pergunta ORDER by COUNT(p.curtidas)";
+        $sql = "SELECT p.id_pergunta,p.descricao_pergunta, p.titulo, p.status from perguntas as p, curtida as c where p.id_pergunta = c.id_pergunta GROUP by c.id_pergunta ORDER by COUNT(p.curtidas) desc";
         $resultado = $this->conexao->query($sql);
 
         $perguntas = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -139,7 +138,7 @@ class CrudPerguntas
     public function getNumPerguntasRespondidas($id_usuario){
         $sql = "select COUNT(p.id_pergunta) as numeroDePerguntas from perguntas as p, usuarios as u where u.id_usuario=p.id_usuario and u.id_usuario=$id_usuario";
         $resultado = $this->conexao->query($sql);
-        $numeroDePerguntas= $resultado->fetch(PDO::FETCH_ASSOC);
+        $numeroDePerguntas= $resultado->fetchAll(PDO::FETCH_ASSOC);
 
         return $numeroDePerguntas;
 
@@ -185,6 +184,21 @@ class CrudPerguntas
             }
     }
 }
+            function descurtir($id_pergunta, $id_usuario)
+    {
+            $sql = "update perguntas set curtidas = curtidas-1 where id_pergunta='{$id_pergunta}'";
+
+            $atualizar_curtidas = $this->conexao->exec($sql);
+
+            if ($atualizar_curtidas) {
+                $inserir_curtida = $this->conexao->exec("DELETE FROM curtida WHERE id_pergunta = $id_pergunta and id_usuario = $id_usuario");
+            if ($inserir_curtida) {
+                return true;
+            }else{
+                return false;
+            }
+    }
+}
 
             function getCurtidas($id_pergunta)
     {
@@ -197,5 +211,5 @@ class CrudPerguntas
     }
 
 }
-//INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, curtidas,id_usuario) VALUES (null, null ,'aaaa','meu deus','portugues',null ,null ,'41')
+
 ?>

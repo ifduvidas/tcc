@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 09-Ago-2018 às 04:51
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Host: localhost
+-- Generation Time: 17-Ago-2018 às 09:12
+-- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,11 +40,10 @@ CREATE TABLE `aluno_comenta` (
 --
 
 INSERT INTO `aluno_comenta` (`id_pergunta`, `id_usuario`, `data_comentario`, `texto_comentario`, `status`, `id_comentario`) VALUES
-(47, 31, '2018-07-21', 'tambem quero saber', NULL, 1),
-(47, 31, '2018-07-21', 'aaaa', NULL, 3),
-(47, 32, '2018-07-21', 'procura no Youtube!', NULL, 4),
-(49, 32, '2018-07-21', 'genetica', NULL, 5),
-(47, 31, '2018-08-08', '...', NULL, 6);
+(60, 61, '2018-08-17', 'Meu amigo, tem vÃ¡rios!', NULL, 11),
+(59, 61, '2018-08-17', 'Que eu sei, existem as substantivas, adjetivas e adverbias.', NULL, 12),
+(61, 60, '2018-08-17', 'Ã‰ um sistema econÃ´mico e polÃ­tico', NULL, 13),
+(63, 60, '2018-08-17', 'Para mim, ler bastante colunas de jornais ajuda bastante no repertÃ³rio', NULL, 14);
 
 -- --------------------------------------------------------
 
@@ -64,62 +61,158 @@ CREATE TABLE `curtida` (
 --
 
 INSERT INTO `curtida` (`id_usuario`, `id_pergunta`) VALUES
-(47, 5),
-(31, 47),
-(31, 47),
-(31, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 50),
-(0, 50),
-(0, 50),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47),
-(0, 47);
+(58, 56),
+(58, 56),
+(58, 55),
+(58, 56),
+(58, 56),
+(58, 56),
+(58, 56),
+(58, 56),
+(58, 54),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(60, 58),
+(61, 62),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 59),
+(61, 59),
+(61, 59),
+(60, 61),
+(60, 61),
+(60, 61),
+(60, 63),
+(60, 63),
+(60, 63),
+(60, 63),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 61),
+(62, 61),
+(62, 61),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 63),
+(63, 63),
+(63, 63),
+(63, 63),
+(63, 63);
 
 -- --------------------------------------------------------
 
@@ -145,12 +238,10 @@ CREATE TABLE `perguntas` (
 --
 
 INSERT INTO `perguntas` (`hora`, `data`, `descricao_pergunta`, `titulo`, `materia`, `id_pergunta`, `id_usuario`, `curso`, `curtidas`, `status`) VALUES
-('03:48:03', '2018-07-21', 'Uma pessoa viajou de A atÃ© C passando por B. De A atÃ© B percorreu 25km e de B atÃ© C, 42km. Os percursos AB e BC formam entre si um Ã¢ngulo de 150Â°', 'ajuda com angulos!', 'matematica', 47, 31, '', '44', 1),
-('03:52:00', '2018-07-21', 'Qual Ã© a definiÃ§Ã£o de Iluminismo de acordo com o filÃ³sofo alemÃ£o Immanuel Kant?', 'Iluminismo!', 'filosofia', 48, 31, '', '', NULL),
-('03:57:40', '2018-07-21', 'Qual a probabilidade de um filho do casal 5Ã—6 ter sangue tipos O/RH+ ou A/Rh-', 'genetica', 'geografia', 49, 31, '', '', NULL),
-('23:10:56', '2018-08-08', 'viajou', 'teste', 'matematica', 50, 32, '', '13', 1),
-('23:12:48', '2018-08-08', 'viajou ate algum lugar', 'teste do teste ', 'matematica', 51, 32, '', '', 1),
-('23:22:58', '2018-08-08', 'Uma pessoa viajou de A atÃ© C passando por B. De A atÃ© B percorreu 25km e de B atÃ© C, 42km. Os percursos AB e BC formam entre si um Ã¢ngulo de 150Â°', 'testee', 'matematica', 52, 32, '', '', NULL);
+('11:34:15', '2018-08-17', 'Quantos tipos de oraÃ§Ã£o subordinada existem?', 'OraÃ§Ãµes Subordinadas', 'portugues', 59, 60, 'agropecuaria', '14', 1),
+('11:36:09', '2018-08-17', 'Quais sÃ£o os tipos de solo aqui no estado de SC?', 'Solos', 'geografia', 60, 60, 'agropecuaria', '20', 1),
+('11:38:14', '2018-08-17', 'Se discute muito sobre esse tema, mas nunca me aprofundei. O que seria exatamente?', 'Comunismo', 'geografia', 61, 61, 'informatica', '6', 1),
+('11:41:20', '2018-08-17', 'Poderiam me informar sobre algumas dicas para se fazer uma boa redaÃ§Ã£o?', 'RedaÃ§Ã£o', 'portugues', 63, 61, 'informatica', '9', 1);
 
 -- --------------------------------------------------------
 
@@ -171,12 +262,13 @@ CREATE TABLE `prof_resposta` (
 --
 
 INSERT INTO `prof_resposta` (`id_pergunta`, `id_usuario`, `data_resposta`, `texto_resposta`, `id_resposta`) VALUES
-(47, 34, '2018-08-08', 'kkk', 1),
-(50, 34, '2018-08-09', 'kkkk', 2),
-(50, 34, '2018-08-09', 'kkkk', 3),
-(51, 34, '2018-08-09', 'oi', 4),
-(50, 34, '2018-08-09', 'kkkk', 5),
-(47, 34, '2018-08-09', 'facil', 6);
+(60, 62, '2018-08-17', 'Cambissolo Bruno HÃºmico, Cambissolo Bruno, Cambissolo e Cambissolo HÃºmico correspondem a mais da metade do solo de SC', 18),
+(61, 62, '2018-08-17', 'Cara estudante, Ã© uma organizaÃ§Ã£o socioeconÃ´mica baseada na propriedade coletiva dos meios de produÃ§Ã£o', 19),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada substantiva subjetiva; OraÃ§Ã£o subordinada substantiva objetiva direta; OraÃ§Ã£o subordinada substantiva objetiva indireta;', 20),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada substantiva completiva nominal; OraÃ§Ã£o subordinada substantiva predicativa; OraÃ§Ã£o subordinada substantiva apositiva.', 21),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada adjetiva explicativa; OraÃ§Ã£o subordinada adjetiva restritiva.', 22),
+(63, 63, '2018-08-17', ' Estruture seu texto adequadamente, Anote as ideias principais que servirÃ£o como argumentos', 23),
+(63, 63, '2018-08-17', 'Organize cada parÃ¡grafo do texto e Entenda as etapas de uma boa redaÃ§Ã£o', 24);
 
 -- --------------------------------------------------------
 
@@ -208,19 +300,22 @@ CREATE TABLE `usuarios` (
   `Nome` varchar(30) DEFAULT NULL,
   `senha` varchar(30) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `num_matricula` int(10) DEFAULT NULL,
   `data_nasc` date DEFAULT NULL,
-  `turma` varchar(30) DEFAULT NULL,
-  `RG` varchar(30) DEFAULT NULL,
+  `atributo` varchar(30) DEFAULT NULL,
   `foto_perf` varchar(160) DEFAULT NULL,
   `id_usuario` int(11) NOT NULL,
-  `valido` tinyint(1) DEFAULT NULL,
   `cod_tip` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
+
+INSERT INTO `usuarios` (`Nome`, `senha`, `email`, `data_nasc`, `atributo`, `foto_perf`, `id_usuario`, `cod_tip`) VALUES
+('marcao', 'marcao', 'marcao@gmail.com', '2000-05-08', '1AGRO1', 'fotos/christian.jpg', 60, 5),
+('antonia', 'antonia', 'antonia@gmail.com', '2002-12-10', '3INFO2', 'fotos/kristy.png', 61, 5),
+('geraldo', 'geraldo', 'geraldo@gmail.com', '1970-11-10', 'Geografia', 'fotos/joe.jpg', 62, 4),
+('rose', 'rose', 'rose@gmail.com', '1985-02-15', 'PortuguÃªs', 'fotos/ade.jpg', 63, 4);
 
 --
 -- Indexes for dumped tables
@@ -271,26 +366,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `aluno_comenta`
 --
 ALTER TABLE `aluno_comenta`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
-
+  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `prof_resposta`
 --
 ALTER TABLE `prof_resposta`
-  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- Constraints for dumped tables
 --
@@ -300,27 +391,26 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `aluno_comenta`
   ADD CONSTRAINT `aluno_comenta_ibfk_1` FOREIGN KEY (`id_pergunta`) REFERENCES `perguntas` (`id_pergunta`),
-  ADD CONSTRAINT `aluno_comenta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `aluno_comenta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `perguntas`
 --
 ALTER TABLE `perguntas`
-  ADD CONSTRAINT `perguntas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `perguntas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `prof_resposta`
 --
 ALTER TABLE `prof_resposta`
   ADD CONSTRAINT `prof_resposta_ibfk_1` FOREIGN KEY (`id_pergunta`) REFERENCES `perguntas` (`id_pergunta`),
-  ADD CONSTRAINT `prof_resposta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `prof_resposta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`cod_tip`) REFERENCES `tip_user` (`cod_tip`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
