@@ -34,9 +34,11 @@ switch ($acao) {
             include '../visualizacao/head.php';
             include '../visualizacao/cadastro.php';
             include '../visualizacao/footer.php';
+
         } else {
 
             // depois de preencher o formulario
+
 
             if (isset($_FILES["foto_perf"])) {
                 $Nome = $_POST['nome'];
@@ -58,6 +60,7 @@ switch ($acao) {
                         break;
                 }
 
+
                 $arquivo = $_FILES["foto_perf"];
                 $pasta_dir = "fotos/";
 
@@ -73,7 +76,7 @@ switch ($acao) {
             };
 
 
-            header("location: Usuarios.php");
+            //header("location: Usuarios.php");
         }
         break;
 

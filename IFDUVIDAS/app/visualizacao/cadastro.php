@@ -43,7 +43,49 @@
 		
 		});
 		
-	</script>		
+	</script>	
+
+
+
+
+	<script type="text/javascript">
+function validaForm(frm) {
+
+    if(frm.nome.value == "" || frm.nome.value == null || frm.nome.value.lenght < 3) {
+        alert("Por favor, indique o seu nome.");
+        frm.nome.focus();
+        return false;
+    }
+    if(frm.senha.value == "" || frm.senha.value == null || frm.senha.value.lenght < 3) {
+        alert("Por favor, indique a sua senha.");
+        frm.senha.focus();
+        return false;
+    }
+
+
+    if(frm.email.value.indexOf("@") == -1 ||
+      frm.email.valueOf.indexOf(".") == -1 ||
+      frm.email.value == "" ||
+      frm.email.value == null) {
+        alert("Por favor, indique um e-mail válido.");
+        frm.email.focus();
+        return false;
+    }
+
+    if(frm.data_nasc.value == "" || frm.data_nasc.value == null) {
+        alert("Por favor, indique a sua data de nascimento.");
+        frm.data_nasc.focus();
+        return false;
+    }
+
+    if(frm.atributo.value == "" || frm.atributo.value == null) {
+        alert("Por favor, indique se você é professor ou aluno.");
+        frm.atributo.focus();
+        return false;
+    }
+}
+
+</script>	
 
 
 </head>
@@ -55,7 +97,7 @@
   <div class="four wide column"></div>
   <div class="eight wide column">
 
-    <form class="ui equal width aligned segment form" method="post" action="../controlador/Usuarios.php?acao=cadastrar" enctype='multipart/form-data'>
+    <form class="ui equal width aligned segment form" method="post" action="../controlador/Usuarios.php?acao=cadastrar" enctype='multipart/form-data' onsubmit="return validaForm(this);">
    <div class="field">
     <label>Nome</label>
     <input type="text" name="nome">
